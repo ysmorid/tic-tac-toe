@@ -18,7 +18,9 @@ public class BoardTest {
 
         board.designBoard();
 
-        verify(printStream).println("1 | 2 | 3/n- - - -/n4 | 5 | 6 |/n- - - -/n 7 | 8 | 9/n ");
+        verify(printStream).println("1 | 2 | 3");
+        verify(printStream).println("4 | 5 | 6");
+        verify(printStream).println("7 | 8 | 9");
     }
 
 }
