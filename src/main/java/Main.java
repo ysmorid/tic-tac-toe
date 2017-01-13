@@ -9,7 +9,7 @@ public class Main {
         PrintStream printStream = new PrintStream(System.out);
         Board board = new Board(printStream);
 
-        board.designBoard();
+        board.displayBoard();
 
     }
 }
