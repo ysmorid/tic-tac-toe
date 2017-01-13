@@ -8,29 +8,27 @@ import java.util.List;
  */
 public class Board {
     private PrintStream printStream;
-    private List<String> boardRows = new ArrayList();
-    private String row1 = "1 | 2 | 3";
-    private String row2 = "- - - - -";
-    private String row3 = "4 | 5 | 6";
-    private String row4 = "- - - - -";
-    private String row5 = "7 | 8 | 9";
+    private String[] boardSpots = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
     public Board(PrintStream printStream) {
         this.printStream = printStream;
-
-        boardRows.add(row1);
-        boardRows.add(row2);
-        boardRows.add(row3);
-        boardRows.add(row4);
-        boardRows.add(row5);
     }
 
+    public String designBoard(){
+        String board = "";
+        int counter = 0;
+        while(counter < boardSpots.length) {
+            for (int i = 0; i < 3; i++) {
+                board += boardSpots[counter] + " | ";
+                counter++;
+            }
+            board += "\n- - - - -\n";
+        }
+        return board;
+    }
 
     public void displayBoard(){
-
-        for(String row: boardRows){
-            printStream.println(row);
-        }
+        printStream.println(designBoard());
     }
 
 }
