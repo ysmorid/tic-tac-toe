@@ -14,7 +14,7 @@ public class Board {
         this.printStream = printStream;
     }
 
-    public void designBoard(){
+    public void displayBoard(){
         printStream.println(
                 "1|2|3\n" +
                 "-----\n" +

@@ -17,7 +17,7 @@ public class BoardTest {
         PrintStream printStream = mock(PrintStream.class);
         Board board = new Board(printStream);
 
-        board.designBoard();
+        board.displayBoard();
 
         verify(printStream).println("1|2|3\n" +
                 "-----\n" +
