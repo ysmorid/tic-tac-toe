@@ -17,9 +17,17 @@ public class BoardTest {
         PrintStream printStream = mock(PrintStream.class);
         Board board = new Board(printStream);
 
-        board.displayBoard();
+        board.designBoard();
 
-        verify(printStream).println("1 | 2 | 3 | \n- - - - -\n4 | 5 | 6 | \n- - - - -\n7 | 8 | 9 | \n- - - - -\n");
+        verify(printStream).println("1|2|3\n" +
+                "-----\n" +
+                "4|5|6\n" +
+                "-----\n" +
+                "7|8|9");
     }
 
+    @Test
+    public void replacesNumberOnBoardWithX() throws Exception {
+
+    }
 }

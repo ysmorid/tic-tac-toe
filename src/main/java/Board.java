@@ -14,21 +14,13 @@ public class Board {
         this.printStream = printStream;
     }
 
-    public String designBoard(){
-        String board = "";
-        int counter = 0;
-        while(counter < boardSpots.length) {
-            for (int i = 0; i < 3; i++) {
-                board += boardSpots[counter] + " | ";
-                counter++;
-            }
-            board += "\n- - - - -\n";
-        }
-        return board;
-    }
-
-    public void displayBoard(){
-        printStream.println(designBoard());
+    public void designBoard(){
+        printStream.println(
+                "1|2|3\n" +
+                "-----\n" +
+                "4|5|6\n" +
+                "-----\n" +
+                "7|8|9");
     }
 
 }
