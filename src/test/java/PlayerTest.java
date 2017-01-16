@@ -6,27 +6,25 @@ import java.io.PrintStream;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+
 /**
  * Created by ymoridza on 1/15/17.
  */
-public class GameTest {
-    Board board;
+public class PlayerTest {
     PrintStream printStream;
-    Game game;
+    Player player;
 
     @Before
     public void setUp() throws Exception {
-        printStream = mock(PrintStream.class);
-        board = mock (Board.class);
-        game = new Game(board, player);
+    printStream = mock(PrintStream.class);
+    player = new Player(printStream);
+
     }
 
     @Test
-    public void shouldDisplayBoardWhenGameIsStarted(){
-        game.startGame();
+    public void shouldDisplayMessageForPlayerToMakeAMove(){
+        player.displayMessage();
 
-        verify(board).displayBoard();
+        verify(printStream).println("Please enter a number from 1 - 9 to make your move:");
     }
-
-
 }

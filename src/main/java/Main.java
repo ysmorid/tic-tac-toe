@@ -8,7 +8,8 @@ public class Main {
     public static void main(String[] args) {
         PrintStream printStream = new PrintStream(System.out);
         Board board = new Board(printStream);
-        Game game = new Game(board);
+        Player player = new Player(printStream);
+        Game game = new Game(board, player);
 
         game.startGame();
 

@@ -1,3 +1,4 @@
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.PrintStream;
@@ -27,6 +28,7 @@ public class BoardTest {
     }
 
     @Test
+    @Ignore
     public void replacesNumberOnBoardWithX() throws Exception {
 
     }
