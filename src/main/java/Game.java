@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * Created by ymoridza on 1/15/17.
  */
@@ -11,8 +13,9 @@ public class Game {
         this.player = player;
     }
 
-    public void startGame() {
-        board.displayBoard();
+    public void playGame() throws IOException {
+        board.createsAndDisplaysBoard();
         player.displayMessage();
+        board.replaceBoardSpotWithUserChoice();
     }
 }
