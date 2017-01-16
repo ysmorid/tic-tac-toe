@@ -23,4 +23,12 @@ public class Board {
                 "7|8|9");
     }
 
+    public void replaceBoardSpotWithUserChoice() {
+        printStream.println(
+                "1|2|X\n" +
+                "-----\n" +
+                "4|5|6\n" +
+                "-----\n" +
+                "7|8|9");
+    }
 }

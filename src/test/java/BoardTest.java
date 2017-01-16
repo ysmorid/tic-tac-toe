@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -12,15 +13,21 @@ import static org.mockito.Mockito.verify;
  */
 
 public class BoardTest {
+    PrintStream printStream;
+    Board board;
+
+    @Before
+    public void setUp() throws Exception {
+        printStream = mock(PrintStream.class);
+        board = new Board(printStream);
+    }
 
     @Test
     public void shouldDesignAndDisplayBoard(){
-        PrintStream printStream = mock(PrintStream.class);
-        Board board = new Board(printStream);
-
         board.displayBoard();
 
-        verify(printStream).println("1|2|3\n" +
+        verify(printStream).println(
+                "1|2|3\n" +
                 "-----\n" +
                 "4|5|6\n" +
                 "-----\n" +
@@ -28,8 +35,15 @@ public class BoardTest {
     }
 
     @Test
-    @Ignore
-    public void replacesNumberOnBoardWithX() throws Exception {
+    public void shouldReplacePlayer1ChoiceOf3WithAnX(){
 
+        board.replaceBoardSpotWithUserChoice();
+
+        verify(printStream).println(
+                "1|2|X\n" +
+                 "-----\n" +
+                 "4|5|6\n" +
+                 "-----\n" +
+                 "7|8|9");
     }
 }
