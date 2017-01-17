@@ -18,6 +18,7 @@ public class BoardTest {
     Board board;
     private List<String> boardSpots;
     private BufferedReader bufferedReader;
+    private int userSelection;
 
     @Before
     public void setUp() throws Exception {
@@ -41,7 +42,7 @@ public class BoardTest {
 
     @Test
     public void shouldReplacePlayer1ChoiceOf3WithAnX() throws IOException {
-        when(bufferedReader.readLine()).thenReturn("3");
+        userSelection = 3;
         board.replaceBoardSpotWithUserChoice(1);
 
         verify(printStream).println(

@@ -24,6 +24,9 @@ public class Game {
             board.replaceBoardSpotWithUserChoice(playerTurn);
             playerTurn = player.switchPlayer(playerTurn);
         }
+        else{
+            playGame();
+        }
     }
 
     public void playUntilBothPlayersHavePlayedTheirTurns() throws IOException {
