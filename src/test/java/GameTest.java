@@ -26,7 +26,7 @@ public class GameTest {
         bufferedReader = mock(BufferedReader.class);
         board = mock(Board.class);
         player = mock(Player.class);
-        game = new Game(board, player);
+        game = new Game(board, player, printStream);
     }
 
     @Test
@@ -39,18 +39,18 @@ public class GameTest {
     public void shouldEnsureThatBothPlayersMovedOnce() throws IOException {
         when(bufferedReader.readLine()).thenReturn("2").thenReturn("4");
 
-        game.playUntilBothPlayersHavePlayedTheirTurns();
+        game.playUntilBoardIsFilled();
 
         verify(player, times(2)).displayMessage();
     }
 
     @Test
-    public void shouldReturnMessageIfLocationOnBoardAlreadyTaken() throws IOException {
+    public void shouldReturnMessageIfGameIsADraw() throws IOException {
         when(bufferedReader.readLine()).thenReturn("2").thenReturn("2");
 
-        game.playUntilBothPlayersHavePlayedTheirTurns();
+        game.playUntilBoardIsFilled();
 
-        verify(printStream).println("Location already taken. Please choose again.");
+        verify(printStream).println("Game is a draw.");
     }
 
 }

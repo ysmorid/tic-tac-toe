@@ -13,10 +13,10 @@ public class Main {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         Board board = new Board(printStream, boardSpots, bufferedReader);
         Player player = new Player(printStream);
-        Game game = new Game(board, player);
+        Game game = new Game(board, player, printStream);
 
         game.startGame();
-        game.playUntilBothPlayersHavePlayedTheirTurns();
+        game.playUntilBoardIsFilled();
 
     }
 }
