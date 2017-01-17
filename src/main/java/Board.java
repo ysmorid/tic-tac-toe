@@ -11,6 +11,7 @@ public class Board {
     private PrintStream printStream;
     private List<String> boardSpots;
     private BufferedReader bufferedReader;
+    private int playerSelection;
 
     public Board(PrintStream printStream, List<String> boardSpots, BufferedReader bufferedReader) {
         this.printStream = printStream;
@@ -35,8 +36,13 @@ public class Board {
         printStream.println(board);
     }
 
-    public void replaceBoardSpotWithUserChoice() throws IOException {
-        boardSpots.set(receivePlayerChoice() - 1, "X");
+    public void replaceBoardSpotWithUserChoice(int userTurn) throws IOException {
+        if(userTurn == 1){
+            boardSpots.set(playerSelection, "X");
+        }
+        else if(userTurn == 2){
+            boardSpots.set(playerSelection, "O");
+        }
         createsAndDisplaysBoard();
     }
 
@@ -46,4 +52,14 @@ public class Board {
         return playerChoicetoIndex;
     }
 
+    public boolean checkIfLocationTaken() throws IOException {
+        playerSelection = receivePlayerChoice() - 1;
+        if(boardSpots.get(playerSelection) == "X" || boardSpots.get(playerSelection) == "O"){
+            printStream.println("Location already taken. Please choose again.");
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

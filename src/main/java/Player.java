@@ -1,4 +1,3 @@
-import java.io.BufferedReader;
 import java.io.PrintStream;
 
 /**
@@ -15,5 +14,14 @@ public class Player {
     public void displayMessage() {
         printStream.println("Please enter a number from 1 - 9 to make your move:");
     }
-
+    public int switchPlayer(int player) {
+        int whichPlayer = player;
+        if(whichPlayer == 1){
+            whichPlayer = 2;
+        }
+        else{
+            whichPlayer = 1;
+        }
+        return whichPlayer;
+    }
 }

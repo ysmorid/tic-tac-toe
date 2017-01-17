@@ -1,5 +1,4 @@
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -8,9 +7,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by ymoridza on 1/13/17.
@@ -45,7 +42,7 @@ public class BoardTest {
     @Test
     public void shouldReplacePlayer1ChoiceOf3WithAnX() throws IOException {
         when(bufferedReader.readLine()).thenReturn("3");
-        board.replaceBoardSpotWithUserChoice();
+        board.replaceBoardSpotWithUserChoice(1);
 
         verify(printStream).println(
                 "1|2|X\n" +
@@ -56,14 +53,14 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldReplacePlayer1ChoiceOf6WithAnX() throws IOException {
+    public void shouldReplacePlayer2ChoiceOf6WithAnO() throws IOException {
         when(bufferedReader.readLine()).thenReturn("6");
-        board.replaceBoardSpotWithUserChoice();
+        board.replaceBoardSpotWithUserChoice(2);
 
         verify(printStream).println(
                 "1|2|3\n" +
                 "-----\n" +
-                "4|5|X\n" +
+                "4|5|O\n" +
                 "-----\n" +
                 "7|8|9");
     }
