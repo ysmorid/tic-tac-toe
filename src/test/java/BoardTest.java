@@ -42,7 +42,8 @@ public class BoardTest {
 
     @Test
     public void shouldReplacePlayer1ChoiceOf3WithAnX() throws IOException {
-        userSelection = 3;
+        when(bufferedReader.readLine()).thenReturn("3");
+        board.checkIfLocationTaken();
         board.replaceBoardSpotWithUserChoice(1);
 
         verify(printStream).println(
@@ -56,6 +57,7 @@ public class BoardTest {
     @Test
     public void shouldReplacePlayer2ChoiceOf6WithAnO() throws IOException {
         when(bufferedReader.readLine()).thenReturn("6");
+        board.checkIfLocationTaken();
         board.replaceBoardSpotWithUserChoice(2);
 
         verify(printStream).println(
